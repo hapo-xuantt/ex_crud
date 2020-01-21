@@ -39,7 +39,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $products = Product::create($request->all());
+        $product = Product::create($request->all());
         return redirect()->route('products.index');
     }
 
@@ -80,8 +80,8 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $products = Product::findOrFail($id);
-        $products->update($request->all());
+        $product = Product::findOrFail($id);
+        $product->update($request->all());
         return redirect()->route('products.index');
     }
 
