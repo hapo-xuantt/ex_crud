@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Product;
 use Illuminate\Http\Request;
 
+
 class ProductController extends Controller
 {
     /**
@@ -14,7 +15,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $data['products'] = Product::all();
+        $data = [
+            'products' => Product::all(),
+        ];
         return view('index', $data);
     }
 
@@ -48,7 +51,9 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $data['products'] = Product::findOrFail($id);
+        $data = [
+            'product' => Product::findOrFail($id),
+        ];
         return view('show', $data);
     }
 
@@ -60,7 +65,9 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        $data['products'] = Product::findOrFail($id);
+       $data = [
+            'product' => Product::findOrFail($id),
+        ];
         return view('edit', $data);
     }
 
