@@ -14,12 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
-Route::prefix('products')->group(function () {
-    Route::get('/', 'ProductController@index')->name('products.index');
-    Route::get('create', 'ProductController@create')->name('products.create');
-    Route::post('store', 'ProductController@store')->name('products.store');
-    Route::get('{product}', 'ProductController@show')->name('products.show');
-    Route::get('{product}/edit', 'ProductController@edit')->name('products.edit');
-    Route::put('{product}', 'ProductController@update')->name('products.update');
-    Route::delete('{product}', 'ProductController@destroy')->name('products.destroy');
+Route::prefix('products')->name('products.')->group(function () {
+    Route::get('/', 'ProductController@index')->name('index');
+    Route::get('create', 'ProductController@create')->name('create');
+    Route::post('/', 'ProductController@store')->name('store');
+    Route::get('{product}', 'ProductController@show')->name('show');
+    Route::get('{product}/edit', 'ProductController@edit')->name('edit');
+    Route::put('{product}', 'ProductController@update')->name('update');
+    Route::delete('{product}', 'ProductController@destroy')->name('destroy');
 });
